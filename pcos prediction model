@@ -1,0 +1,46 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.preprocessing import StandardScaler
+import pickle
+
+# Example synthetic data (ensure it matches the form used in quiz)
+data = {
+    'irregular_periods': [0, 1, 2, 3],
+    'cystic_acne': [0, 1, 2, 3],
+    'weight_gain': [0, 1, 2, 3],
+    'hair_loss': [0, 1, 2, 3],
+    'hirsutism': [0, 1, 2, 3],
+    'cramps_backpain': [0, 1, 2, 3],
+    'high_tsh': [0, 1, 2, 3],
+    'anemia': [0, 1, 2, 3],
+    'anxiety': [0, 1, 2, 3],
+    'hot_flashes': [0, 1, 2, 3],
+    'age': [25, 30, 35, 40],
+    'bmi': [22.5, 25.0, 27.5, 30.0],
+    'pcos_risk': [0, 1, 0, 1]  # 0: Low risk, 1: High risk
+}
+
+df = pd.DataFrame(data)
+
+# Feature columns
+features = ['irregular_periods', 'cystic_acne', 'weight_gain', 'hair_loss', 'hirsutism',
+            'cramps_backpain', 'high_tsh', 'anemia', 'anxiety', 'hot_flashes', 'age', 'bmi']
+X = df[features]
+y = df['pcos_risk']
+
+# Split data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Scaling features
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# Train a RandomForest model
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+model.fit(X_train_scaled, y_train)
+
+# Save model and scaler to files
+pickle.dump(model, open('pcos_model.pkl', 'wb'))
+pickle.dump(scaler, open('scaler.pkl', 'wb'))

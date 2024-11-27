@@ -40,6 +40,6 @@ Requirements
 
 - Python 3.x
 - Flask
-- scikit-learn
+- scikit-learn (RandomForestClassifier)
 - OpenAI API (for the chatbot functionality)
 - pickle (for loading the ML model and scaler)

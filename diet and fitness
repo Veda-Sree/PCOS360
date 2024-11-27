@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet and Fitness Plan Result</title>
+</head>
+<body>
+    <h1>Diet and Fitness Plan</h1>
+
+    <h2>Your BMI: {{ bmi | round(2) }}</h2>
+
+    <h2>Recommended Diet Plan</h2>
+    <p>{{ diet_plan }}</p>
+
+    <h2>Recommended Fitness Plan</h2>
+    <p>{{ fitness_plan }}</p>
+
+    <h2>Helpful Links</h2>
+    <ul>
+        {% if links %}
+            {% if links['exercise'] %}
+                <li><a href="{{ links['exercise'] }}" target="_blank">Exercise Tips</a></li>
+            {% endif %}
+            {% if links['nutrition'] %}
+                <li><a href="{{ links['nutrition'] }}" target="_blank">Nutrition Guidance</a></li>
+            {% endif %}
+            {% if links['diet'] %}
+                <li><a href="{{ links['diet'] }}" target="_blank">Diet Resources</a></li>
+            {% endif %}
+            {% if links['fitness'] %}
+                <li><a href="{{ links['fitness'] }}" target="_blank">Fitness Tips</a></li>
+            {% endif %}
+        {% else %}
+            <li>No links available based on your result.</li>
+        {% endif %}
+    </ul>
+
+</body>
+</html>

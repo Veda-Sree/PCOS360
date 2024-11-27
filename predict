@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOS Prediction Result</title>
+</head>
+<body>
+    <h1>PCOS Prediction Result</h1>
+    <p>Your total symptom severity score is: {{ risk_score }}</p>
+    <p>Based on your answers, the PCOS risk prediction is: <strong>{{ prediction_result }}</strong></p>
+
+    <p><strong>Explanation:</strong></p>
+    <p>If your symptom severity is high across multiple categories (e.g., irregular periods, weight gain, anxiety), you may have a higher risk of PCOS. This is just an estimate and should be followed up with medical consultation.</p>
+
+    <a href="/predict">Go back and retake the quiz</a>
+</body>
+</html>

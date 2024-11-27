@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Tracker</title>
+</head>
+<body>
+    <h1>Symptom Tracker</h1>
+    <form action="{{ url_for('symptom_tracker') }}" method="POST">
+        <label for="symptom_name">Symptom Name:</label>
+        <input type="text" id="symptom_name" name="symptom_name" required>
+        
+        <label for="symptom_description">Symptom Description:</label>
+        <textarea id="symptom_description" name="symptom_description" required></textarea>
+        
+        <button type="submit">Log Symptom</button>
+    </form>
+
+    <br>
+
+    <h2>Logged Symptoms:</h2>
+    {% if symptoms %}
+        <ul>
+            {% for symptom in symptoms %}
+                <li><strong>{{ symptom.name }}:</strong> {{ symptom.description }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No symptoms logged yet.</p>
+    {% endif %}
+</body>
+</html>

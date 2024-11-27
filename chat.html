@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOS360 Chatbot</title>
+</head>
+<body>
+    <h1>PCOS360 Chatbot</h1>
+    <form method="POST">
+        <label for="message">Your Message:</label>
+        <textarea name="message" rows="4" cols="50" placeholder="Ask me anything related to PCOS..."></textarea><br>
+        <button type="submit">Send</button>
+    </form>
+
+    {% if user_message %}
+        <h3>You: {{ user_message }}</h3>
+        <h3>Bot: {{ bot_response }}</h3>
+    {% endif %}
+</body>
+</html>

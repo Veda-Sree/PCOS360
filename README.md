@@ -26,12 +26,8 @@ PCOS360 is a web application designed to help individuals manage and monitor Pol
    - A chatbot powered by OpenAI's GPT-3.5 provides support for mental health concerns related to PCOS.
    - It offers relevant advice, emergency contacts, and mental health resources, as well as nearby health services like ambulance numbers and suicide helplines.
 
- 6. Diet and Fitness Plan with Links
-   - Based on the user's BMI and fitness goals, the app provides a basic diet and fitness plan.
-   - Links to external resources are dynamically displayed based on the user's results (e.g., additional workout videos, PCOS-friendly diet plans).
-
- 7. Web Application Structure**
-   - Developed using **Flask** as the backend framework.
+ 6. Web Application Structure**
+   - Developed using Flask as the backend framework.
    - Frontend templates are rendered using **Jinja2**, and the web app provides a responsive interface with HTML forms for user input.
    - The app uses **pickle** for loading a trained machine learning model for PCOS prediction and **scikit-learn** for data scaling.
 
